@@ -18,7 +18,7 @@ hotkeys = {
 }
 
 for i, hotkey in ipairs(hotkeys) do
-	k:bind({}, hotkey[1], nil, function() hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, 'm') end)
+	k:bind({}, hotkey[1], nil, function() hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, hotkey[1]) end)
 end
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
