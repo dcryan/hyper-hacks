@@ -2,6 +2,7 @@
 -- A global variable for the Hyper Mode
 k = hs.hotkey.modal.new({}, "F17")
 
+-- These are the hotkeys that are mapped to the Hyper key. These have a corresponding binding to Hyper + [hotkey] in Keyboard maestro.
 hotkeys = {
 	{ '1' },
 	{ 'M' },
@@ -17,6 +18,7 @@ hotkeys = {
 	{ 'X' }
 }
 
+-- Bind each Hotkey to hyper when capslock and the hotkey is pressed.
 for i, hotkey in ipairs(hotkeys) do
 	k:bind({}, hotkey[1], nil, function() hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, hotkey[1]) end)
 end
