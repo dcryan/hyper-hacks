@@ -20,7 +20,11 @@ hotkeys = {
 
 -- Bind each Hotkey to hyper when capslock and the hotkey is pressed.
 for i, hotkey in ipairs(hotkeys) do
-	k:bind({}, hotkey[1], nil, function() hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, hotkey[1]) end)
+	pressedKey = function()
+		hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, hotkey[1])
+		k.triggered = true
+	end
+	k:bind({}, hotkey[1], nil, pressedKey)
 end
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
